@@ -1,6 +1,18 @@
+/*
+ * @Author: your name
+ * @Date: 2019-12-12 18:34:16
+ * @LastEditTime: 2020-08-20 11:54:33
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \iview-admin\src\api\user.js
+ */
 import axios from '@/libs/api.request'
 
-export const login = ({ userName, password }) => {
+export const login = ({
+  userName,
+  password
+}) => {
+  console.log('api页面-user-login请求接口')
   const data = {
     userName,
     password
@@ -13,6 +25,7 @@ export const login = ({ userName, password }) => {
 }
 
 export const getUserInfo = (token) => {
+  console.log('api页面-user-getUserInfo请求接口')
   return axios.request({
     url: 'get_info',
     params: {

@@ -11,11 +11,15 @@ import {
   localSave,
   localRead
 } from '@/libs/util'
-import { saveErrorLogger } from '@/api/data'
-import router from '@/router'
-import routers from '@/router/routers'
-import config from '@/config'
-const { homeName } = config
+import {
+  saveErrorLogger
+} from '@/api/data'
+import router from '@/router' // 路由导航规则页面
+import routers from '@/router/routers' // 整个前端静态路由表
+import config from '@/config' // 定义首页名称 api基础路径等
+const {
+  homeName
+} = config // config中的homeName为home页
 
 const closePage = (state, route) => {
   const nextRoute = getNextRoute(state.tagNavList, route)
@@ -35,6 +39,13 @@ export default {
     hasReadErrorPage: false
   },
   getters: {
+    // state
+    // getters
+    // rootState  vuex中的所有模块中的state数据
+    // routers   前端整个静态路由表
+    // rootState.user.access   vuex中user模块中的state中的字段access
+    // getMenuByRouter  通过路由列表得到菜单列表  libs-until
+    // menuList  得到重新组装好的新路由表
     menuList: (state, getters, rootState) => getMenuByRouter(routers, rootState.user.access),
     errorCount: state => state.errorList.length
   },
@@ -65,7 +76,10 @@ export default {
       if (!route) return
       closePage(state, route)
     },
-    addTag (state, { route, type = 'unshift' }) {
+    addTag (state, {
+      route,
+      type = 'unshift'
+    }) {
       let router = getRouteTitleHandled(route)
       if (!routeHasExist(state.tagNavList, router)) {
         if (type === 'push') state.tagNavList.push(router)
@@ -88,9 +102,18 @@ export default {
     }
   },
   actions: {
-    addErrorLog ({ commit, rootState }, info) {
+    addErrorLog ({
+      commit,
+      rootState
+    }, info) {
       if (!window.location.href.includes('error_logger_page')) commit('setHasReadErrorLoggerStatus', false)
-      const { user: { token, userId, userName } } = rootState
+      const {
+        user: {
+          token,
+          userId,
+          userName
+        }
+      } = rootState
       let data = {
         ...info,
         time: Date.parse(new Date()),

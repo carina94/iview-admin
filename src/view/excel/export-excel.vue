@@ -1,11 +1,19 @@
+<!--
+ * @Author: your name
+ * @Date: 2019-12-12 18:34:16
+ * @LastEditTime: 2020-08-05 13:12:14
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \iview-admin\src\view\excel\export-excel.vue
+-->
 <style lang="less">
-    @import "./common.less";
+@import "./common.less";
 </style>
 <template>
   <div>
     <Card title="导出EXCEL">
       <Row>
-        <Button icon="md-download" :loading="exportLoading" @click="exportExcel">导出文件</Button>
+        <Button icon="md-download" :loading="exportLoading" @click="exportExcel">导出文件11</Button>
       </Row>
     </Card>
     <Row class="margin-top-10">
@@ -58,7 +66,7 @@ export default {
       if (this.tableData.length) {
         this.exportLoading = true
         const params = {
-          title: ['一级分类', '二级分类', '三级分类'],
+          title: ['一级分类1', '二级分类2', '三级分类3'],
           key: ['category1', 'category2', 'category3'],
           data: this.tableData,
           autoWidth: true,

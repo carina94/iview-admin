@@ -38,8 +38,17 @@ export const getUnion = (arr1, arr2) => {
  * @param {Array} arr 需要查询的数组
  * @description 判断要查询的数组是否至少有一个元素包含在目标数组中
  */
+// some() 方法用于检测数组中的元素是否满足指定条件（函数提供）。
+// some() 方法会依次执行数组的每个元素：
+// 如果有一个元素满足条件，则表达式返回true , 剩余的元素不会再执行检测。
+// 如果没有满足条件的元素，则返回false。
 export const hasOneOf = (targetarr, arr) => {
-  return targetarr.some(_ => arr.indexOf(_) > -1)
+  console.log('libs-tools-hasOneOf方法内部')
+  // targetarr   后台返回的权限数组
+  // arr  前端定义的某个路由的查看权限数组
+  // targetItem  指targetarr中的每一项
+  return targetarr.some(targetItem => arr.indexOf(targetItem) > -1) // super_admin
+  // 返回true或false
 }
 
 /**

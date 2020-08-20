@@ -1,3 +1,11 @@
+<!--
+ * @Author: your name
+ * @Date: 2019-12-12 18:34:16
+ * @LastEditTime: 2020-08-20 20:03:08
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: \iview-admin\src\components\main\components\header-bar\header-bar.vue
+-->
 <template>
   <div class="header-bar">
     <sider-trigger :collapsed="collapsed" icon="md-menu" @on-change="handleCollpasedChange"></sider-trigger>
@@ -26,6 +34,7 @@ export default {
     }
   },
   methods: {
+    // sider-trigger向上传递 this.collapsed的值
     handleCollpasedChange (state) {
       this.$emit('on-coll-change', state)
     }
